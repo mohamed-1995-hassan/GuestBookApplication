@@ -1,0 +1,40 @@
+﻿@model GuestBookApplication.Data.Models.UserMessage
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<div style="margin:100px auto" class="card">
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                
+                    <div class="container">
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col">
+                                    <label asp-for="Message" class="control-label"></label>
+                                </div>
+
+                                <div class="col">
+                                    <input asp-for="Message" class="form-control form-control-lg" />
+                                </div>
+
+                            </div>
+                        </div>
+                    <span asp-validation-for="Message" class="text-danger"></span>
+                </div>
+                <div class="form-group" style="text-align:center">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

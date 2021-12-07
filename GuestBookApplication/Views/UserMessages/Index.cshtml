@@ -1,0 +1,39 @@
+﻿@model IEnumerable<GuestBookApplication.Data.Models.UserMessage>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New Message</a>
+</p>
+
+@Html.DisplayNameFor(model => model.Message)
+    @foreach (var item in Model)
+    {
+
+
+<div class=" card" style="height:120px;display:flex;flex-direction:row;margin:10px;padding:10px;">
+    <div style="flex:3;text-align:center;position:relative">
+        <div style="position: absolute; top: 30%;">
+            <span style="font-size:20px;font-weight:200">User Message :</span>  <span style="font-size:20px;font-weight:200">@Html.DisplayFor(modelItem => item.Message)</span>
+        </div>
+    </div>
+    <div style="flex:3;text-align:center;position:relative">
+        <div style="position: absolute; top: 30%;">
+            <span style="font-size:20px;font-weight:200">User Name :</span>  <span style="font-size:20px;font-weight:200">@Html.DisplayFor(modelItem => item.User.UserName)</span>
+        </div>
+    </div>
+
+    <div style="flex:2;text-align:center;position:relative">
+        <a asp-action="Edit" style="color: #fff;position:absolute;top:30%;" class="btn btn-warning" asp-route-id="@item.Id">Edit</a>
+    </div>
+    <div style="flex:2;align-content:center;position:relative">
+        <a asp-action="Delete" class="btn btn-danger" style="position: absolute; top:30%;" asp-route-id="@item.Id">Delete</a>
+    </div>
+</div>
+
+    }
+
+
